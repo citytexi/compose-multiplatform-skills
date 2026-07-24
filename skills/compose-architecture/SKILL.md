@@ -36,7 +36,16 @@ Create a todo for each item and complete them in order:
 ### Source of truth and state owner
 One screen state holder owns `StateFlow<State>`. Visual-only concerns stay in
 local Compose state; persisted data lives in the repository. Do not mix them.
-→ state owner selection, domain layer, module rules: [references/architecture.md](references/architecture.md)
+→ state owner selection, where logic belongs, state slicing: [references/architecture.md](references/architecture.md)
+
+### Layering and modules
+The domain layer is pure business logic with zero platform imports (runs in
+`commonTest`); repository interfaces live in domain, implementations in data;
+use cases only for multi-step orchestration, never single repo pass-throughs.
+Organize by feature; `feature:impl` never depends on another `feature:impl`,
+`core:*` never depends on features. Cross-feature contact goes through an `:api`
+module or a shared `core` repository — never another feature's ViewModel.
+→ domain layer, module dependency rules, inter-feature communication: [references/architecture.md](references/architecture.md)
 
 ### MVI 3-type contract
 `Event` is the only input, processed by a single `onEvent()`. `State` is an
