@@ -12,9 +12,10 @@ architecture.
 |---|---|
 | [compose-architecture](skills/compose-architecture/SKILL.md) | MVI screen architecture and state management |
 | [compose-di](skills/compose-di/SKILL.md) | Dependency injection: Koin, Koin Annotations, Metro |
+| [compose-async](skills/compose-async/SKILL.md) | Kotlin Coroutines & Flow: hot streams, operators, dispatchers, stateIn, testing |
 
 ## Roadmap
 
 Additional domains will be added as separate skills: navigation, networking,
-persistence, async/Flow, UI, animation, cross-platform,
+persistence, UI, animation, cross-platform,
 performance, testing, and build.
