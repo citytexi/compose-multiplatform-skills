@@ -14,9 +14,9 @@ architecture.
 | [compose-di](skills/compose-di/SKILL.md) | Dependency injection: Koin, Koin Annotations, Metro |
 | [compose-async](skills/compose-async/SKILL.md) | Kotlin Coroutines & Flow: hot streams, operators, dispatchers, stateIn, testing |
 | [compose-networking](skills/compose-networking/SKILL.md) | Ktor client: setup, DTOs, error handling, auth, WebSockets/SSE, MockEngine |
+| [compose-navigation](skills/compose-navigation/SKILL.md) | Navigation 3: route keys, back stack, scenes, tabs, results, deep links, modularization |
 
 ## Roadmap
 
-Additional domains will be added as separate skills: navigation,
-persistence, UI, animation, cross-platform,
+Additional domains will be added as separate skills: persistence, UI, animation, cross-platform,
 performance, testing, and build.
