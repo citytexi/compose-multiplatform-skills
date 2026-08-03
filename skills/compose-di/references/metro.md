@@ -1,6 +1,6 @@
 # Dependency Injection with Metro
 
-> API verified against Metro 1.3.2 docs; re-verify `@DependencyGraph.Factory`
+> API verified against Metro 1.4.0 docs; re-verify `@DependencyGraph.Factory`
 > and assisted-injection signatures against the current Metro documentation
 > before use.
 
@@ -17,7 +17,7 @@ Dagger/Anvil/kotlin-inject. For the default runtime approach see
 ```kotlin
 plugins {
     kotlin("multiplatform")
-    id("dev.zacsweers.metro") version "1.3.2"   // verify latest
+    id("dev.zacsweers.metro") version "1.4.0"   // verify latest
 }
 ```
 

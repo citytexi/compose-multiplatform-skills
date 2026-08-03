@@ -33,7 +33,8 @@ dependencies {
 | `koin-core` | Core DI engine (multiplatform) |
 | `koin-compose` | Base Compose API (`koinInject`) |
 | `koin-compose-viewmodel` | ViewModel injection (`koinViewModel`) |
-| `koin-compose-viewmodel-navigation` | Navigation entry-provider integration (navigation DI is covered by a future compose-navigation skill) |
+| `koin-compose-viewmodel-navigation` | Navigation 2.x integration — ViewModel scoped to a `NavBackStackEntry` (`koinNavViewModel`, deprecated in favor of `koinViewModel`; `sharedKoinViewModel`) |
+| `koin-compose-navigation3` | Navigation 3 entry-provider integration (`koinEntryProvider`, the `navigation<T>` DSL; `@KoinExperimentalAPI`) |
 | `koin-androidx-compose` | Android convenience (includes compose + viewmodel) |
 
 Platform support: Android, iOS, Desktop — full. Web — experimental.
@@ -163,8 +164,10 @@ Inject as default parameters for testability:
 | `parametersOf(...)` | All | Pass runtime values to `koinViewModel` or `koinInject` |
 | `get<T>()` | All | Resolve inside `module { }` only — never in composables |
 
-Navigation-specific DI (`koinEntryProvider`, `navigation<T>`) is covered by the
-future compose-navigation skill.
+Navigation-specific DI — `koinEntryProvider` and the `navigation<T>` DSL from
+`koin-compose-navigation3`, and the Navigation 2.x `koinNavViewModel` from
+`koin-compose-viewmodel-navigation` — is covered by the compose-navigation
+skill.
 
 ## Scopes
 
