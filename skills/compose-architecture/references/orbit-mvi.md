@@ -19,10 +19,10 @@ Orbit 12.x.
 
 ```kotlin
 // group: org.orbit-mvi
-implementation("org.orbit-mvi:orbit-core:12.0.0")        // multiplatform core
-implementation("org.orbit-mvi:orbit-viewmodel:12.0.0")   // AndroidX ViewModel integration
-implementation("org.orbit-mvi:orbit-compose:12.0.0")     // Compose / CMP collectors
-testImplementation("org.orbit-mvi:orbit-test:12.0.0")    // state/effect test DSL
+implementation("org.orbit-mvi:orbit-core:12.0.0")        // multiplatform core; verify latest: https://repo1.maven.org/maven2/org/orbit-mvi/orbit-core/maven-metadata.xml
+implementation("org.orbit-mvi:orbit-viewmodel:12.0.0")   // AndroidX ViewModel integration; verify latest: https://repo1.maven.org/maven2/org/orbit-mvi/orbit-viewmodel/maven-metadata.xml
+implementation("org.orbit-mvi:orbit-compose:12.0.0")     // Compose / CMP collectors; verify latest: https://repo1.maven.org/maven2/org/orbit-mvi/orbit-compose/maven-metadata.xml
+testImplementation("org.orbit-mvi:orbit-test:12.0.0")    // state/effect test DSL; verify latest: https://repo1.maven.org/maven2/org/orbit-mvi/orbit-test/maven-metadata.xml
 ```
 
 - `orbit-core` is the only required module and is fully multiplatform (`commonMain`).

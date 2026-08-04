@@ -13,7 +13,7 @@ References:
 
 ```kotlin
 commonMain.dependencies {
-    implementation(platform("io.insert-koin:koin-bom:4.2.2"))   // verify latest on Maven Central
+    implementation(platform("io.insert-koin:koin-bom:4.2.2"))   // verify latest: https://repo1.maven.org/maven2/io/insert-koin/koin-bom/maven-metadata.xml
     implementation("io.insert-koin:koin-core")
     implementation("io.insert-koin:koin-compose")
     implementation("io.insert-koin:koin-compose-viewmodel")
@@ -24,7 +24,7 @@ commonMain.dependencies {
 
 ```kotlin
 dependencies {
-    implementation("io.insert-koin:koin-androidx-compose:4.2.2")  // includes compose + viewmodel; verify latest
+    implementation("io.insert-koin:koin-androidx-compose:4.2.2")  // includes compose + viewmodel; verify latest: https://repo1.maven.org/maven2/io/insert-koin/koin-androidx-compose/maven-metadata.xml
 }
 ```
 
@@ -209,7 +209,7 @@ class KoinModuleCheck : KoinTest {
         appModule.verify(extraTypes = listOf(SavedStateHandle::class))
     }
 }
-// commonTest.dependencies { implementation("io.insert-koin:koin-test:4.2.2") }
+// commonTest.dependencies { implementation("io.insert-koin:koin-test:4.2.2") } // verify latest: https://repo1.maven.org/maven2/io/insert-koin/koin-test/maven-metadata.xml
 ```
 
 ## Anti-Patterns
