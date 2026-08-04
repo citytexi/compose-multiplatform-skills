@@ -45,11 +45,23 @@ event callback / effect handler
 > what hides the mistake — the runtime import resolves everywhere, and only
 > the UI layer silently degrades to a non-functional stub.
 
+All three versions below are read together off one anchor — Compose
+Multiplatform `1.11.1`'s Dependencies section (see the compose-dependencies
+skill's `version-lock.md`) — never chosen independently. A stable Lifecycle
+`2.11.0` and a `1.3.0-beta02` Material3 Adaptive both exist on Maven Central,
+and a later, still-prerelease Compose Multiplatform build
+(`1.12.0-beta03`, Dependencies section checked 2026-08-04) does name that
+exact Lifecycle/Adaptive pair — but that same build moves Navigation3 to
+`1.2.0-alpha02`, not the `1.1.1` this file pins, and no release names
+`1.1.1` / `2.11.0` / `1.3.0-beta02` together as one coordinated set. So the
+pins below stay on the `1.11.1` anchor throughout, not the newer, still-beta
+one that happens to name two of the three numbers.
+
 ```toml
 [versions]
-nav3 = "1.1.1"              # verify latest: https://central.sonatype.com/artifact/org.jetbrains.androidx.navigation3/navigation3-ui
-lifecycle = "2.11.0"        # verify latest: https://central.sonatype.com/artifact/org.jetbrains.androidx.lifecycle/lifecycle-viewmodel-navigation3
-adaptive = "1.3.0-beta02"   # verify latest: https://central.sonatype.com/artifact/org.jetbrains.compose.material3.adaptive/adaptive-navigation3
+nav3 = "1.1.1"              # verify latest: https://github.com/JetBrains/compose-multiplatform/releases/tag/v1.11.1
+lifecycle = "2.11.0-beta01" # verify latest: https://github.com/JetBrains/compose-multiplatform/releases/tag/v1.11.1
+adaptive = "1.3.0-alpha07"  # verify latest: https://github.com/JetBrains/compose-multiplatform/releases/tag/v1.11.1
 
 [libraries]
 nav3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "nav3" }

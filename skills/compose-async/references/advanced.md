@@ -110,8 +110,8 @@ Use Semaphore for: rate-limiting concurrent network calls, limiting parallel fil
 
 ```kotlin
 // commonTest
-implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.11.0")  // verify latest
-implementation("app.cash.turbine:turbine:1.2.0")                         // verify latest
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.11.0")  // verify latest: https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-test/maven-metadata.xml
+implementation("app.cash.turbine:turbine:1.2.0")                         // verify latest: https://repo1.maven.org/maven2/app/cash/turbine/turbine/maven-metadata.xml
 ```
 
 For full ViewModel event→state→effect testing, see the compose-architecture skill.

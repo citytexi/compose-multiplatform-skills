@@ -15,6 +15,7 @@ architecture.
 | [compose-async](skills/compose-async/SKILL.md) | Kotlin Coroutines & Flow: hot streams, operators, dispatchers, stateIn, testing |
 | [compose-networking](skills/compose-networking/SKILL.md) | Ktor client: setup, DTOs, error handling, auth, WebSockets/SSE, MockEngine |
 | [compose-navigation](skills/compose-navigation/SKILL.md) | Navigation 3: route keys, back stack, scenes, tabs, results, deep links, modularization |
+| [compose-dependencies](skills/compose-dependencies/SKILL.md) | Version catalogs: pinning from Compose Multiplatform release notes, coordinate classification, conflict diagnosis, API availability |
 
 ## Roadmap
 

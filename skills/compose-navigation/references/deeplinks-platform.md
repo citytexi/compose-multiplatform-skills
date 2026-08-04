@@ -9,7 +9,7 @@ pointing at [tabs-flows.md](tabs-flows.md).
 
 ## Nav 3 Has No Deep Link API
 
-As pinned in this skill ([nav3-core.md](nav3-core.md)'s `nav3 = "1.1.1"`), Navigation 3 has
+As pinned in this skill ([nav3-core.md](nav3-core.md)'s `## Dependencies` table), Navigation 3 has
 no deep-link API: no `navDeepLink`, no manifest-declared URI table, nothing
 that inspects a URI at all. The app owns matching a URI to a `NavKey` and
 building the back stack that key belongs on — this section adapts the

@@ -11,7 +11,7 @@ plugins { id("com.google.devtools.ksp") }
 
 kotlin {
     sourceSets.commonMain.dependencies {
-        implementation("io.insert-koin:koin-annotations:2.3.0")   // verify latest
+        implementation("io.insert-koin:koin-annotations:2.3.0")   // verify latest: https://repo1.maven.org/maven2/io/insert-koin/koin-annotations/maven-metadata.xml
     }
     sourceSets.named("commonMain").configure {
         kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
@@ -19,8 +19,8 @@ kotlin {
 }
 
 dependencies {
-    add("kspCommonMainMetadata", "io.insert-koin:koin-ksp-compiler:2.3.0")
-    add("kspAndroid", "io.insert-koin:koin-ksp-compiler:2.3.0")
+    add("kspCommonMainMetadata", "io.insert-koin:koin-ksp-compiler:2.3.0") // verify latest: https://repo1.maven.org/maven2/io/insert-koin/koin-ksp-compiler/maven-metadata.xml
+    add("kspAndroid", "io.insert-koin:koin-ksp-compiler:2.3.0") // verify latest: https://repo1.maven.org/maven2/io/insert-koin/koin-ksp-compiler/maven-metadata.xml
     // ... add for each target (kspIosArm64, kspIosSimulatorArm64, etc.)
 }
 

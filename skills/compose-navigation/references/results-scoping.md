@@ -276,7 +276,7 @@ about for `navigation3-ui`:
 
 ```toml
 [libraries]
-compose-runtime-retain = { module = "androidx.compose.runtime:runtime-retain", version = "1.11.4" } # verify latest
+compose-runtime-retain = { module = "androidx.compose.runtime:runtime-retain", version = "1.11.4" } # verify latest: https://dl.google.com/android/maven2/androidx/compose/runtime/runtime-retain/maven-metadata.xml
 ```
 
 Usage inside an entry:
