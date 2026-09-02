@@ -99,7 +99,7 @@ If using this pattern, build `refreshClient` once at startup (or wire it through
 
 ## Token Storage
 
-Implement with DataStore, encrypted SharedPreferences, or Keychain depending on platform. The interface uses app-owned types — convert to `BearerTokens` only at the plugin boundary. Never log tokens — see the logging rules in [error-handling.md](error-handling.md).
+Implement with a typed `DataStore` in `commonMain`, falling back to the platform keystore (Keychain, etc.) where one exists — Android-only `SharedPreferences` is not a target for new code in a multiplatform project. The interface uses app-owned types — convert to `BearerTokens` only at the plugin boundary. Never log tokens — see the logging rules in [error-handling.md](error-handling.md). For the DataStore setup itself and where the file lives, see the compose-persistence skill.
 
 ```kotlin
 interface TokenStorage {

@@ -16,8 +16,9 @@ architecture.
 | [compose-networking](skills/compose-networking/SKILL.md) | Ktor client: setup, DTOs, error handling, auth, WebSockets/SSE, MockEngine |
 | [compose-navigation](skills/compose-navigation/SKILL.md) | Navigation 3: route keys, back stack, scenes, tabs, results, deep links, modularization |
 | [compose-dependencies](skills/compose-dependencies/SKILL.md) | Version catalogs: pinning from Compose Multiplatform release notes, coordinate classification, conflict diagnosis, API availability |
+| [compose-persistence](skills/compose-persistence/SKILL.md) | Local storage: Room 3 database and DAOs, DataStore settings, Paging 3, offline-first repositories |
 
 ## Roadmap
 
-Additional domains will be added as separate skills: persistence, UI, animation, cross-platform,
-performance, testing, and build.
+Additional domains will be added as separate skills: UI, animation, cross-platform, performance,
+testing, and build.

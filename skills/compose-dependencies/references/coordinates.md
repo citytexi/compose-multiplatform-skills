@@ -207,23 +207,40 @@ classification procedure below exists instead of a static list.
 
 Confirmed by fetching each artifact's Gradle Module Metadata from
 `dl.google.com` and checking for `org.jetbrains.kotlin.native.target` entries
-— examples verified on 2026-08-04, not the list:
+— examples verified on the date in the last column, not the list:
 
-| Coordinate | Version checked | Non-JVM targets found |
-|---|---|---|
-| `androidx.room:room-runtime` | `2.8.4` | iOS (arm64, simulator arm64, x64), macOS, Linux, tvOS, watchOS |
-| `androidx.datastore:datastore-preferences` | `1.2.1` | iOS, macOS, Linux, tvOS, watchOS |
-| `androidx.paging:paging-common` | `3.5.0` | iOS (arm64, simulator arm64), macOS, Linux, mingwX64, tvOS, watchOS |
-| `androidx.sqlite:sqlite` | `2.7.0` | iOS (arm64, simulator arm64), macOS, Linux, tvOS, watchOS |
-| `androidx.collection:collection` | `1.6.0` | iOS, macOS, Linux, mingwX64, tvOS, watchOS |
-| `androidx.annotation:annotation` | `1.10.0` | Android Native, iOS (arm64, simulator arm64), macOS, Linux, mingwX64, tvOS, watchOS |
+| Coordinate | Version checked | Non-JVM targets found | Verified |
+|---|---|---|---|
+| `androidx.room3:room3-runtime` | `3.0.2` | JS, Wasm (`wasmJs`)†, iOS (arm64, simulator arm64 — no x64), macOS (arm64 only — no x64), Linux (arm64, x64), tvOS (arm64, simulator arm64 — no x64), watchOS (arm32, arm64, device arm64, simulator arm64 — no x64) | 2026-09-02 |
+| `androidx.datastore:datastore-preferences` | `1.2.1` | iOS, macOS, Linux, tvOS, watchOS | 2026-08-04 |
+| `androidx.paging:paging-common` | `3.5.1` | JS, Wasm (`wasmJs`)†, `mingwX64`, iOS (arm64, simulator arm64 — no x64), macOS (arm64 only — no x64), Linux (arm64, x64), tvOS (arm64, simulator arm64 — no x64), watchOS (arm32, arm64, device arm64, simulator arm64 — no x64) | 2026-09-02 |
+| `androidx.sqlite:sqlite` | `2.7.0` | iOS (arm64, simulator arm64), macOS, Linux, tvOS, watchOS | 2026-08-04 |
+| `androidx.collection:collection` | `1.6.0` | iOS, macOS, Linux, mingwX64, tvOS, watchOS | 2026-08-04 |
+| `androidx.annotation:annotation` | `1.10.0` | Android Native, iOS (arm64, simulator arm64), macOS, Linux, mingwX64, tvOS, watchOS | 2026-08-04 |
 
-Each row's version was the artifact's current stable release on 2026-08-04
-(<https://dl.google.com/android/maven2/androidx/room/room-runtime/maven-metadata.xml>
+Each row's version was the artifact's current stable release on the date in
+the Verified column
+(<https://dl.google.com/android/maven2/androidx/room3/room3-runtime/maven-metadata.xml>
 and the equivalent `maven-metadata.xml` path for each other artifact); the
 target list is what that exact `.module` file reported, run through the
 command in the next section. // verify latest for each: substitute the
 artifact path into the same `maven-metadata.xml` URL pattern.
+
+The `room3-runtime` and `paging-common` rows were re-verified on 2026-09-02
+for the compose-persistence skill; the other three rows still carry their
+original 2026-08-04 verification and have not been re-checked since.
+
+Two limits of this grep, both visible in the table above. First, it matches
+only `org.jetbrains.kotlin.native.target`, so it cannot see Kotlin/JS or Wasm
+variants at all — the †-marked "JS, Wasm (`wasmJs`)" cells in the
+`room3-runtime` and `paging-common` rows were not produced by this grep;
+they came from reading the group's `group-index.xml` directly (confirming
+`js`/`wasm-js` artifact entries exist for the checked version), because a
+project targeting web has no other way to learn whether those variants
+exist. Second, an absent target is as load-bearing as a present one: Room 3
+publishing no `iosX64`, `macosX64`, `mingwX64`, `tvosX64`, or `watchosX64`
+variant is precisely what makes SQLDelight the alternative for those targets
+rather than the Room 2 → Room 3 upgrade being mechanical everywhere.
 
 ### Android-only
 
@@ -327,7 +344,7 @@ above instead of this procedure.)
    artifact host does not, and it is the authoritative publisher for
    `androidx.*` anyway:
    ```bash
-   curl -s "https://dl.google.com/android/maven2/androidx/room/room-runtime/2.8.4/room-runtime-2.8.4.module" \
+   curl -s "https://dl.google.com/android/maven2/androidx/room3/room3-runtime/3.0.2/room3-runtime-3.0.2.module" \
      | grep -o '"org.jetbrains.kotlin.native.target": *"[^"]*"' | sort -u
    ```
    Substitute the artifact's own group path, artifact id, and exact version

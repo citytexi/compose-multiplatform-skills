@@ -122,7 +122,7 @@ class OfflineFirstItemRepository(
 }
 ```
 
-`refresh()` goes through `safeCall` for the same reason `ItemRepositoryImpl` does above: `api.getItems()` throws on a non-2xx response (see the API Service section), and a raw call here would bypass classification entirely — the `Flow` above keeps serving the last-known-good rows from `dao`, but the caller still needs a typed signal that the refresh itself failed (e.g. an MVI screen showing a "couldn't refresh" banner over the cached list) rather than an unhandled exception. Local persistence (`ItemDao`, entities) is out of scope for this skill and belongs to a future persistence skill — it is shown here only to place the network boundary: `refresh()` is where a remote DTO list turns into rows an offline-first UI can observe.
+`refresh()` goes through `safeCall` for the same reason `ItemRepositoryImpl` does above: `api.getItems()` throws on a non-2xx response (see the API Service section), and a raw call here would bypass classification entirely — the `Flow` above keeps serving the last-known-good rows from `dao`, but the caller still needs a typed signal that the refresh itself failed (e.g. an MVI screen showing a "couldn't refresh" banner over the cached list) rather than an unhandled exception. Local persistence (`ItemDao`, entities) is out of scope for this skill and is covered by the compose-persistence skill — it is shown here only to place the network boundary: `refresh()` is where a remote DTO list turns into rows an offline-first UI can observe.
 
 ## Type-Safe Resources
 
