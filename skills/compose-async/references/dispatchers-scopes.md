@@ -30,6 +30,14 @@ class ProductRepository(
 
 Inject dispatchers as constructor params (`ioDispatcher: CoroutineDispatcher = Dispatchers.IO`) for testability — tests substitute a test dispatcher — and for platform-safety, since a JS/Wasm-targeting `commonMain` can supply an `expect/actual` dispatcher instead of hardcoding `Dispatchers.IO`.
 
+One exception, in the direction this rule usually protects: a library that
+already owns its own dispatching needs no wrapper. Room runs suspend DAO
+functions and `Flow` queries on the database's own query coroutine context,
+whose default is the platform IO dispatcher, so `withContext(ioDispatcher) {
+dao.getAll() }` buys nothing and names a JVM/Native-only dispatcher in code
+that Room itself compiles for JS and Wasm. Wrap your own suspend functions,
+not a Room DAO — see the compose-persistence skill.
+
 ## flowOn
 
 `flowOn` changes the dispatcher for upstream operators and buffers at the switch point. It affects everything above it in the chain only — operators below `flowOn` still run on the collector's dispatcher:
